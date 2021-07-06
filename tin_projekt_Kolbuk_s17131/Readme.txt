@@ -1,1 +1,1 @@
-Ponieważ katalog(node_modules) ten może rozrosnąć się do kilkuset MB w ramach rozwoju projektu, a wszystkie zależności są opisane w package.json, w żadnym wypadku nie należy dołączać go do archiwum z rozwiązaniem mini-projektu . Należy uprzednio usunąć go z wysyłanego archiwum.
+
