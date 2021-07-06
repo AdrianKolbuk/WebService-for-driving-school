@@ -1,0 +1,168 @@
+{
+	"main-page": {
+		"content": "Ośrodek szkolenia kierowców Zetka",
+		"contact": "Kontakt"
+	},
+	"nav": {
+		"main-page": "Strona główna",
+		"employees": "Pracownicy",
+		"trainings": "Dostępne szkolenia",
+		"history": "Historia zapisów na szkolenie"
+	},
+	"list": {
+		"actions": {
+			"title": "Akcje",
+			"details": "Szczegóły",
+			"edit": "Edytuj",
+			"delete": "Usuń"
+		}
+	},
+	"form": {
+		"actions": {
+			"return": "Powrót",
+			"edit": "Edytuj",
+			"cancel": "Anuluj"
+		}
+	},
+	"emp": {
+		"fields": {
+			"firstName": "Imię",
+			"lastName": "Nazwisko",
+			"email": "Email",
+			"salary": "Pensja",
+			"bonus": "Premia kwartalna(%)",
+			"category": "Kategoria prawa jazdy",
+			"expDate": "Data ważności prawa jazdy",
+			"permisson": "Uprawnienia do szkoleń",
+			"password": "Hasło",
+			"phone": "Nr tel"
+		},
+		"list": {
+			"title": "Lista pracowników",
+			"addNew": "Dodaj nowego pracownika",
+			"noData": "Brak pracowników w bazie",
+			"pageTitle": "Lista pracowników"
+		},
+		"form": {
+			"trainingHistory": "Szczegóły przeprowadzonych szkoleń",
+			"add": {
+				"pageTitle": "Dodawanie pracownika",
+				"btnLabel": "Dodaj pracownika",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie dodano pracownika"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edycja pracownika",
+				"btnLabel": "Zapisz zmiany",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie zaktualizowano pracownika"
+				}
+			},
+			"details": {
+				"pageTitle": "Szczegóły pracownika"
+			}
+		}
+	},
+	"history": {
+		"fields": {
+			"employee": "Pracownik",
+			"training": "Szkolenie",
+			"dateFrom": "Data od",
+			"dateTo": "Data do",
+			"opinion": "Opinia klienta"
+		},
+		"list": {
+			"title": "Historia przeprowadzonych szkoleń",
+			"addNew": "Dodaj przeprowadzone szkolenie",
+			"noData": "Brak historii szkoleń w bazie",
+			"pageTitle": "Lista przeprowadzonych szkoleń"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Dodawanie przeprowadzonego treningu",
+				"btnLabel": "Dodaj przeprowadzone szkolenie",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie dodano szkolenie do historii"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edycja przeprowadzonego szkolenia",
+				"btnLabel": "Zapisz zmiany",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie zaktualizowano historię szkoleń"
+				}
+			},
+			"details": {
+				"pageTitle": "Szczegóły przeprowadzonych szkoleń"
+			}
+		}
+	},
+	"training": {
+		"fields": {
+			"trainingType": "Typ treningu",
+			"duration": "Czas trwania(h)",
+			"level": "Poziom zaawansowania",
+			"price": "Cena za godzinę"
+		},
+		"list": {
+			"title": "Dostępne szkolenia",
+			"addNew": "Dodaj nowe szkolenie",
+			"noData": "Brak dostępnych szkoleń w bazie",
+			"pageTitle": "Lista dostępnych szkoleń"
+		},
+		"form": {
+			"employee": "Szczegóły pracowników, którzy przeprowadzili to szkolenie",
+			"add": {
+				"pageTitle": "Dodawanie nowego szkolenia",
+				"btnLabel": "Dodaj szkolenie",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie dodano szkolenie"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edycja szkolenia",
+				"btnLabel": "Zapisz zmiany",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie zaktualizowano szkolenie"
+				}
+			},
+			"details": {
+				"pageTitle": "Szczegóły szkolenia"
+			}
+		}
+	},
+	"validationMessage": {
+		"fieldRequired": "Pole jest wymagane",
+		"fieldBetween2000and1000000": "Pole powinno być liczbą od 2000 do 1 000 000",
+		"fieldBetween1and30": "Pole powinno być liczbą od 1 do 30",
+		"fieldEmail": "Pole powinno zawierać prawidłowy adres email",
+		"fieldIsNumber": "Pole powinno być liczbą",
+		"fieldIsDate": "Pole powinno zawierać datę w formacie yyyy-MM-dd (np. 2000-01-01)",
+		"fieldNotNull": "Pole nie może być puste",
+		"fieldFormErrors": "Formularz zawiera błędy",
+		"fieldLenBetween2and60": "Pole powinno zawierać od 2 do 60 znaków",
+		"fieldBetween100and500": "Pole powinno być liczbą od 100 do 500",
+		"fieldBetween1and3": "Pole powinno być liczbą od 1 do 3",
+		"fieldDateFromFuture": "Data nie może być z przyszłości",
+		"fieldDateFromIsAfterDateTo": "Data do nie może być przed datą od",
+		"fieldLenBetween0and256": "Pole powinno zawierać od 0 do 256 znaków",
+		"fieldLenBetween2and32": "Pole powinno zawierać od 2 do 32 znaków",
+		"fieldLenBetween5and60": "Pole powinno zawierać od 5 do 60 znaków",
+		"fieldLenBetween12and12": "np. +48xxxxxxxxx",
+		"fieldLenBetween5and40": "Pole powinno zawierać od 5 do 40 znaków"
+	},
+	"login": {
+		"title": "Logowanie",
+		"password": "Hasło",
+		"loggedAs": "Zalogowano jako",
+		"log_out": "Wyloguj się",
+		"log_in": "Zaloguj się"
+	}
+}

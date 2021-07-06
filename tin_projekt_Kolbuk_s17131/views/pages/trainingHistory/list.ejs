@@ -1,0 +1,94 @@
+<%- include('../../fragments/header.ejs') %>
+
+    <main>
+        <h2>
+            <%= __('history.list.title') %>
+        </h2>
+        <table class="table-list">
+            <thead>
+                <tr>
+                    <th>
+                        <%= __('emp.fields.firstName') %>
+                    </th>
+                    <th>
+                        <%= __('emp.fields.lastName') %>
+                    </th>
+                    <th>
+                        <%= __('training.fields.trainingType') %>
+                    </th>
+                    <th>
+                        <%= __('training.fields.duration') %>
+                    </th>
+                    <th>
+                        <%= __('training.fields.level') %>
+                    </th>
+                    <th>
+                        <%= __('history.fields.dateFrom') %>
+                    </th>
+                    <th>
+                        <%= __('history.fields.dateTo') %>
+                    </th>
+                    <th>
+                        <%= __('history.fields.opinion') %>
+                    </th>
+                    <th>
+                        <%= __('list.actions.title') %>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let history of trainingHistory) { %>
+                    <tr>
+                        <td>
+                            <%= history.employee.firstName %>
+                        </td>
+                        <td>
+                            <%= history.employee.lastName %>
+                        </td>
+                        <td>
+                            <%= history.training.trainingType %>
+                        </td>
+                        <td>
+                            <%= history.training.duration %>
+                        </td>
+                        <td>
+                            <%= history.training.level %>
+                        </td>
+                        <td>
+                            <%= history.dateFrom %>
+                        </td>
+                        <td>
+                            <%= history.dateTo %>
+                        </td>
+                        <td>
+                            <%= history.opinion %>
+                        </td>
+                        <td>
+                            <ul class="list-actions">
+                                <li>
+                                    <a href="/history/details/<%= history._id %>" class="list-actions-button-details">
+                                        <%= __('list.actions.details') %>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/history/edit/<%= history._id %>" class="list-actions-button-edit">
+                                        <%= __('list.actions.edit') %>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/history/delete/<%= history._id %>" class="list-actions-button-delete">
+                                        <%= __('list.actions.delete') %>
+                                    </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+        <p><a href="/history/add" class="button-add">
+                <%= __('history.list.addNew') %>
+            </a></p>
+    </main>
+
+    <%- include('../../fragments/footer.ejs') %>

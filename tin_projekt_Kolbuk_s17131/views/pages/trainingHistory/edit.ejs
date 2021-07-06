@@ -1,0 +1,66 @@
+<%- include('../../fragments/header.ejs') %>
+
+    <main>
+        <h2>Edycja przeprowadzonego szkolenia</h2>
+        <form class="form" novalidate onsubmit="return validateForm();">
+            <!-- <div class="form-group"> -->
+            <label for="employee">Pracownik:<abbr title="required" aria-label="required">*</abbr></label>
+            <select id="employee" name="employee">
+                <option value="" selected disabled>-- Wybierz pracownika --</option>
+                <option value="Michał Nowak">Michał Nowak</option>
+                <option value="Jan Kórczak">Jan Kórczak</option>
+                <option value="Jakub Baranowski">Jakub Baranowski</option>
+            </select>
+            <span id="errorEmployee" class="errors-text"></span>
+            <!-- </div>
+            <div class="form-group"> -->
+            <label for="trainingType">Typ szkolenia:<abbr title="required" aria-label="required">*</abbr></label>
+            <select id="trainingType" name="trainingType">
+                <option value="" selected disabled>-- Wybierz typ szkolenia --</option>
+                <option value="Nauka driftu">Nauka driftu</option>
+                <option value="Jazda torowa">Jazda torowa</option>
+                <option value="Niebezpieczeństwa drogowe">Niebezpieczeństwa drogowe</option>
+            </select>
+            <span id="errorTrainingType" class="errors-text"></span>
+            <!-- </div>
+            <div class="form-group"> -->
+            <label for="duration">Czas trwania:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="number" name="duration" value id="duration" placeholder="1-3 godzin" />
+            <span id="errorDuration" class="errors-text"></span>
+            <!-- </div>
+            <div class="form-group"> -->
+            <label for="level">Poziom zaawansowania:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="number" name="level" value=1 id="level" placeholder="(początkujący)1-3(zaawansowany)" />
+            <!-- <select id="level" name="level">
+                <option value="" selected disabled>-- Wybierz poziom zaawansowania --</option>
+                <option value="1">1 - początkujący</option>
+                <option value="2">2 - średnio zaawansowany</option>
+                <option value="3">3 - zaawansowany</option>
+            </select> -->
+            <span id="errorLevel" class="errors-text"></span>
+            <!-- </div>
+            <div class="form-group"> -->
+            <label for="dateFrom">Data od:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="date" name="dateFrom" value id="dateFrom" />
+            <span id="errorDateFrom" class="errors-text"></span>
+            <!-- </div>
+            <div class="form-group"> -->
+            <label for="dateTo">Data do:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="date" name="dateTo" value id="dateTo" />
+            <span id="errorDateTo" class="errors-text"></span>
+            <!-- </div>
+            <div class="form-group"> -->
+            <label for="opinion">Opinia klienta:</label>
+            <input type="text" name="opinion" value="" id="opinion" placeholder="0-256 znaków" />
+            <span id="errorOpinion" class="errors-text"></span>
+            <!-- </div> -->
+            <div class="form-buttons">
+                <p id="errorsSummary" class="errors-text"></p>
+                <input type="submit" value="Zapisz" class="form-button-submit" />
+                <a class="form-button-cancel" href="/history">Anuluj</a>
+            </div>
+        </form>
+
+    </main>
+
+    <%- include('../../fragments/footer.ejs') %>

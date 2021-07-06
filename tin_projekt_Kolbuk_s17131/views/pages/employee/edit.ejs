@@ -1,0 +1,68 @@
+<%- include('../../fragments/header.ejs') %>
+
+    <main>
+        <h2>Edycja pracownika</h2>
+        <form class="form" novalidate onsubmit="return validateForm();">
+            <!-- <div class="form-group"> -->
+            <label for="firstName">Imię:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="text" name="firstName" id="firstName" value="" placeholder="2-60 znaków" />
+            <span id="errorFirstName" class="errors-text"></span>
+            <!-- </div>
+                <div class="form-group"> -->
+            <label for="lastName">Nazwisko:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="text" name="lastName" id="lastName" value="" placeholder="2-60 znaków" />
+            <span id="errorLastName" class="errors-text"></span>
+            <!-- </div>
+                <div class="form-group"> -->
+            <label for="email">E-mail:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="email" name="email" id="email" value="" placeholder="np. nazwa@domena.pl" />
+            <span id="errorEmail" class="errors-text"></span>
+            <!-- </div>
+                <div class="form-group"> -->
+            <label for="phone">NrTel:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="text" name="phone" id="phone" value="" placeholder="np. +48xxxxxxxxx" />
+            <span id="errorPhone" class="errors-text"></span>
+            <!-- </div>
+                <div class="form-group"> -->
+            <label for="salary">Pensja:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="number" name="salary" value="" id="salary" />
+            <span id="errorSalary" class="errors-text"></span>
+            <!-- </div>
+                <div class="form-group"> -->
+            <label for="bonus">Premia kwartalna(%):<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="number" name="bonus" value="" id="bonus" />
+            <span id="errorBonus" class="errors-text"></span>
+            <!-- </div>
+                <div class="form-group"> -->
+            <label for="category">Kategoria prawa jazdy:<abbr title="required" aria-label="required">*</abbr></label>
+            <select id="category" name="category">
+                <option value="" selected disabled>-- Wybierz opcję --</option>
+                <option value="B">B</option>
+                <option value="A">A</option>
+            </select>
+            <span id="errorCategory" class="errors-text"></span>
+            <!-- </div>
+            <div class="form-group"> -->
+            <label for="expDate">Data ważności prawa jazdy:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="date" name="expDate" value id="expDate" />
+            <span id="errorExpDate" class="errors-text"></span>
+            <!-- </div>
+                <div class="form-group"> -->
+            <label for="permisson">Uprawnienia do szkoleń:<abbr title="required" aria-label="required">*</abbr></label>
+            <select id="permisson" name="permisson">
+                <option value="" selected disabled>-- Wybierz opcję --</option>
+                <option value="Tak">Tak</option>
+                <option value="Nie">Nie</option>
+            </select>
+            <span id="errorPermisson" class="errors-text"></span>
+            <!-- </div> -->
+            <div class="form-buttons">
+                <p id="errorsSummary" class="errors-text"></p>
+                <input type="submit" value="Zapisz" class="form-button-submit" />
+                <a class="form-button-cancel" href="/employees">Anuluj</a>
+            </div>
+        </form>
+
+    </main>
+
+    <%- include('../../fragments/footer.ejs') %>

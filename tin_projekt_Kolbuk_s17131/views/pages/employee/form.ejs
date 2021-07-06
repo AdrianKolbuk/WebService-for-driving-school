@@ -1,0 +1,296 @@
+<%- include('../../fragments/header.ejs') %>
+
+    <main>
+        <h2>
+            <%= pageTitle %>
+        </h2>
+        <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+            <!-- novalidate onsubmit="return validateForm();" -->
+            <input type="hidden" name="_id" value="<%= emp._id %>">
+
+            <label for="firstName">
+                <%= __('emp.fields.firstName') + ':' %><abbr title="required" aria-label="required">*</abbr>
+            </label>
+            <input type="text" name="firstName" id="firstName"
+                class="<%= validationErrors.find(e => e.path.includes('firstName')) ? 'error-input' : '' %>"
+                placeholder="2-60 znaków" value="<%= emp.firstName %>" <%=(formMode=='showDetails' ) ? 'disabled' : ''
+                %>/>
+            <span id="errorFirstName" class="errors-text">
+                <% if (validationErrors.find(e=> e.path.includes('firstName'))) { %>
+                    <%= validationErrors.find(e=> e.path.includes('firstName')).message %>
+                        <% } %>
+            </span>
+
+            <label for="lastName">
+                <%= __('emp.fields.lastName') + ':' %><abbr title="required" aria-label="required">*</abbr>
+            </label>
+            <input type="text" name="lastName" id="lastName"
+                class="<%= validationErrors.find(e => e.path.includes('lastName')) ? 'error-input' : '' %>"
+                placeholder="2-60 znaków" value="<%= emp.lastName %>" <%=(formMode=='showDetails' ) ? 'disabled' : ''
+                %>/>
+            <span id="errorLastName" class="errors-text">
+                <% if (validationErrors.find(e=> e.path.includes('lastName'))) { %>
+                    <%= validationErrors.find(e=> e.path.includes('lastName')).message %>
+                        <% } %>
+            </span>
+
+            <label for="email">
+                <%= __('emp.fields.email') + ':' %><abbr title="required" aria-label="required">*</abbr>
+            </label>
+            <input type="email" name="email" id="email"
+                class="<%= validationErrors.find(e => e.path.includes('email')) ? 'error-input' : '' %>"
+                placeholder="np. nazwa@domena.pl" value="<%= emp.email %>" <%=(formMode=='showDetails' ) ? 'disabled'
+                : '' %>/>
+            <span id="errorEmail" class="errors-text">
+                <% if (validationErrors.find(e=> e.path.includes('email'))) { %>
+                    <%= validationErrors.find(e=> e.path.includes('email')).message %>
+                        <% } %>
+            </span>
+
+            <label for="phone">
+                <%= __('emp.fields.phone') + ':' %><abbr title="required" aria-label="required">*</abbr>
+            </label>
+            <input type="text" name="phone" id="phone"
+                class="<%= validationErrors.find(e => e.path.includes('phone')) ? 'error-input' : '' %>"
+                placeholder="np. +48xxxxxxxxx" value="<%= emp.phone %>" <%=(formMode=='showDetails' ) ? 'disabled' : ''
+                %>/>
+            <span id="errorPhone" class="errors-text">
+                <% if (validationErrors.find(e=> e.path.includes('phone'))) { %>
+                    <%= validationErrors.find(e=> e.path.includes('phone')).message %>
+                        <% } %>
+            </span>
+
+            <label for="salary">
+                <%= __('emp.fields.salary') + ':' %><abbr title="required" aria-label="required">*</abbr>
+            </label>
+            <input type="number" name="salary" id="salary"
+                class="<%= validationErrors.find(e => e.path.includes('salary')) ? 'error-input' : '' %>"
+                value="<%= emp.salary %>" <%=(formMode=='showDetails' ) ? 'disabled' : '' %>/>
+            <span id="errorSalary" class="errors-text">
+                <% if (validationErrors.find(e=> e.path.includes('salary'))) { %>
+                    <%= validationErrors.find(e=> e.path.includes('salary')).message %>
+                        <% } %>
+            </span>
+
+            <label for="bonus">
+                <%= __('emp.fields.bonus') + ':' %><abbr title="required" aria-label="required">*</abbr>
+            </label>
+            <input type="number" name="bonus" id="bonus"
+                class="<%= validationErrors.find(e => e.path.includes('bonus')) ? 'error-input' : '' %>"
+                value="<%= emp.bonus %>" <%=(formMode=='showDetails' ) ? 'disabled' : '' %>/>
+            <span id="errorBonus" class="errors-text">
+                <% if (validationErrors.find(e=> e.path.includes('bonus'))) { %>
+                    <%= validationErrors.find(e=> e.path.includes('bonus')).message %>
+                        <% } %>
+            </span>
+
+            <label for="category">
+                <%= __('emp.fields.category') + ':' %><abbr title="required" aria-label="required">*</abbr>
+            </label>
+            <select id="category" name="category"
+                class="<%= validationErrors.find(e => e.path.includes('category')) ? 'error-input' : '' %>"
+                <%=(formMode=='showDetails' ) ? 'disabled' : '' %>>
+                <% if (formMode=='showDetails' || formMode=='edit' ) { %>
+                    <option value="A" <%=(emp.category=="A" ) ? 'selected' : '' %>>
+                        A
+                    </option>
+                    <option value="B" <%=(emp.category=="B" ) ? 'selected' : '' %>>
+                        B
+                    </option>
+                    <% } else { %>
+                        <option value="" selected disabled>-- Wybierz opcję --</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <% } %>
+            </select>
+            <span id="errorCategory" class="errors-text">
+                <% if (validationErrors.find(e=> e.path.includes('category'))) { %>
+                    <%= validationErrors.find(e=> e.path.includes('category')).message %>
+                        <% } %>
+            </span>
+
+            <label for="expDate">
+                <%= __('emp.fields.expDate') + ':' %><abbr title="required" aria-label="required">*</abbr>
+            </label>
+            <input type="date" name="expDate" id="expDate"
+                class="<%= validationErrors.find(e => e.path.includes('expDate')) ? 'error-input' : '' %>"
+                <%=(formMode=='showDetails' ) ? 'disabled' : '' %>
+            value = "<%=emp.expDate%>"/>
+                <span id="errorExpDate" class="errors-text">
+                    <% if (validationErrors.find(e=> e.path.includes('expDate'))) { %>
+                        <%= validationErrors.find(e=> e.path.includes('expDate')).message %>
+                            <% } %>
+                </span>
+
+                <label for="permisson">
+                    <%= __('emp.fields.permisson') + ':' %><abbr title="required" aria-label="required">*</abbr>
+                </label>
+                <select id="permisson" name="permisson"
+                    class="<%= validationErrors.find(e => e.path.includes('permisson')) ? 'error-input' : '' %>"
+                    <%=(formMode=='showDetails' ) ? 'disabled' : '' %>>
+                    <% if (formMode=='showDetails' || formMode=='edit' ) { %>
+                        <option value=1 <%=(emp.permisson==1 ) ? 'selected' : '' %>>
+                            Tak
+                        </option>
+                        <option value=0 <%=(emp.permisson==0 ) ? 'selected' : '' %>>
+                            Nie
+                        </option>
+                        <% } else { %>
+                            <option value="" selected disabled>-- Wybierz opcję --</option>
+                            <option value=1>Tak</option>
+                            <option value=0>Nie</option>
+                            <% } %>
+                </select>
+                <span id="errorPermisson" class="errors-text">
+                    <% if (validationErrors.find(e=> e.path.includes('permisson'))) { %>
+                        <%= validationErrors.find(e=> e.path.includes('permisson')).message %>
+                            <% } %>
+                </span>
+
+
+                <% if(formMode!=='showDetails' && formMode!=='' ) { %>
+                    <label for="password">
+                        <%= __('emp.fields.password') + ':' %><abbr title="required" aria-label="required">*</abbr>
+                    </label>
+                    <input type="password" name="password" id="password" placeholder="5-40 znaków"
+                        value="<%= emp.password %>"
+                        class="<%= validationErrors.find(e => e.path.includes('password')) ? 'error-input' : '' %>">
+                    <span id="errorPassword" class="errors-text">
+                        <% if (validationErrors.find(e=> e.path.includes('password'))) { %>
+                            <%= validationErrors.find(e=> e.path.includes('password')).message %>
+                                <% } %>
+                    </span>
+                    <% } %>
+
+                        <% if (formMode=='showDetails' ) { %>
+                            <div class="form-buttons">
+                                <a href="/employees/edit/<%= emp._id %>" class="list-actions-button-edit">
+                                    <%= __('form.actions.edit') %>
+                                </a>
+                            </div>
+                            <% } else if(formMode=='edit' ) { %>
+                                <div class="form-buttons">
+                                    <p id="errorsSummary" class="errors-text">
+                                        <% if(validationErrors.length>0){%>
+                                            <%= __('form.errorsSummary') %>
+                                                <% } %>
+                                    </p>
+                                    <input type="submit" value="<%=btnLabel%>" class="form-button-submit" />
+                                    <a class="form-button-cancel" href="/employees">
+                                        <%= __('form.actions.cancel') %>
+                                    </a>
+                                </div>
+                                <% } else if(formMode=='createNew' ){%>
+                                    <div class="form-buttons">
+                                        <p id="errorsSummary" class="errors-text">
+                                            <% if(validationErrors.length>0){%>
+                                                <%= __('form.errorsSummary') %>
+                                                    <% } %>
+                                        </p>
+                                        <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+                                        <a class="form-button-cancel" href="/employees">
+                                            <%= __('form.actions.cancel') %>
+                                        </a>
+                                    </div>
+                                    <% } %>
+        </form>
+        <div style="display: none">
+            <span id="errorMessage-required">
+                <%= __('validationMessage.fieldRequired') %>
+            </span>
+            <span id="errorMessage-between2000and1000000">
+                <%= __('validationMessage.fieldBetween2000and1000000') %>
+            </span>
+            <span id="errorMessage-between1and30">
+                <%= __('validationMessage.fieldBetween1and30') %>
+            </span>
+            <span id="errorMessage-email">
+                <%= __('validationMessage.fieldEmail') %>
+            </span>
+            <span id="errorMessage-isNumber">
+                <%= __('validationMessage.fieldIsNumber') %>
+            </span>
+            <span id="errorMessage-isDate">
+                <%= __('validationMessage.fieldIsDate') %>
+            </span>
+            <span id="errorMessage-notNull">
+                <%= __('validationMessage.fieldNotNull') %>
+            </span>
+            <span id="errorMessage-formErrors">
+                <%= __('validationMessage.fieldFormErrors') %>
+            </span>
+            <span id="errorMessage-lenBetween2and32">
+                <%= __('validationMessage.fieldLenBetween2and32') %>
+            </span>
+            <span id="errorMessage-lenBetween5and60">
+                <%= __('validationMessage.fieldLenBetween5and60') %>
+            </span>
+            <span id="errorMessage-lenBetween12and12">
+                <%= __('validationMessage.fieldLenBetween12and12') %>
+            </span>
+            <span id="errorMessage-lenBetween5and40">
+                <%= __('validationMessage.fieldLenBetween5and40') %>
+            </span>
+        </div>
+
+        <% if (formMode=='showDetails' || formMode=='edit' ) { %>
+            <h2>
+                <%= __('emp.form.trainingHistory') %>
+            </h2>
+            <table class="table-list">
+                <thead>
+                    <tr>
+                        <th>
+                            <%= __('training.fields.trainingType') %>
+                        </th>
+                        <th>
+                            <%= __('training.fields.duration') %>
+                        </th>
+                        <th>
+                            <%= __('training.fields.level') %>
+                        </th>
+                        <th>
+                            <%= __('history.fields.dateFrom') %>
+                        </th>
+                        <th>
+                            <%= __('history.fields.dateTo') %>
+                        </th>
+                        <th>
+                            <%= __('history.fields.opinion') %>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (let e of emp.trainingHistory) { %>
+                        <tr>
+                            <td><a href="/trainings/details/<%= e.training._id %>">
+                                    <%= e.training.trainingType %>
+                                </a></td>
+                            <td>
+                                <%= e.training.duration %>
+                            </td>
+                            <td>
+                                <%= e.training.level %>
+                            </td>
+                            <td>
+                                <%= e.dateFrom %>
+                            </td>
+                            <td>
+                                <%= e.dateTo %>
+                            </td>
+                            <td>
+                                <%= e.opinion %>
+                            </td>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+            <% } %>
+                <% if (formMode=='showDetails' || formMode=='edit' ) { %>
+                    <a class="form-button-return" href="/employees">
+                        <%= __('form.actions.return') %>
+                    </a>
+                    <% } %>
+    </main>
+
+    <%- include('../../fragments/footer.ejs') %>

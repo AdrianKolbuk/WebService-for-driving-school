@@ -1,0 +1,98 @@
+<%- include('../../fragments/header.ejs') %>
+
+    <main>
+        <h2>Szczegóły pracownika</h2>
+        <form class="form-details">
+            <!-- <div class="form-group"> -->
+            <label for="firstName">Imię:</label>
+            <input type="text" name="firstName" value="Michał" id="firstName" disabled />
+            <!-- </div>
+            <div class="form-group"> -->
+            <label for="surName">Nazwisko:</label>
+            <input type="text" name="surName" value="Nowak" id="surName" disabled />
+            <!-- </div>
+            <div class="form-group"> -->
+            <label for="email">E-mail:</label>
+            <input type="email" name="email" value="m.nowak@zetka.com" id="email" disabled />
+            <!-- </div>
+            <div class="form-group"> -->
+            <label for="phone">NrTel:</label>
+            <input type="text" name="phone" value="+48600222354" id="phone" disabled />
+            <!-- </div>
+            <div class="form-group"> -->
+            <label for="salary">Pensja:</label>
+            <input type="number" name="salary" value="5000" id="salary" disabled />
+            <!-- </div>
+            <div class="form-group"> -->
+            <label for="bonus">Premia kwartalna(%):</label>
+            <input type="number" name="bonus" value="20" id="bonus" disabled />
+            <!-- </div>
+            <div class="form-group"> -->
+            <label for="category">Kategoria prawa jazdy:</label>
+            <input type="text" name="category" value="B" id="category" disabled />
+            <!-- </div>
+            <div class="form-group"> -->
+            <label for="expDate">Data ważności prawa jazdy:</label>
+            <input type="date" name="expDate" value=2030-06-04 id="expDate" disabled />
+            <!-- </div>
+            <div class="form-group"> -->
+            <label for="permisson">Uprawnienia do szkoleń:</label>
+            <input type="text" name="permisson" value="Tak" id="permisson" disabled />
+            <!-- </div> -->
+            <div class="form-buttons">
+                <a class="list-actions-button-edit" href="employee_edit.html">Edytuj</a>
+            </div>
+        </form>
+
+        <% if (formMode=='showDetails' || formMode=='edit' ) { %>
+            <h2>Szczegóły przeprowadzonych szkoleń</h2>
+            <table class="table-list">
+                <thead>
+                    <tr>
+                        <th>Typ szkolenia</th>
+                        <th>Czas trwania w godzinach</th>
+                        <th>Poziom zaawansowania</th>
+                        <th>DataOd</th>
+                        <th>DataDo</th>
+                        <th>Opinia klienta</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (let e of emp.history) { %>
+                        <tr>
+                            <td><a href="/trainings/details/<%= e.training._id %>">
+                                    <%= e.training.trainingType %>
+                                </a></td>
+                            <td>
+                                <%= e.duration %>
+                            </td>
+                            <td>
+                                <%= e.level %>
+                            </td>
+                            <td>
+                                <%= e.dateFrom.toISOString().split('T')[0] %>
+                            </td>
+                            <td>
+                                <%= e.dateTo ? e.dateTo.toISOString().split('T')[0] : '' %>
+                            </td>
+                            <td>
+                                <%= e.opinion %>
+                            </td>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+            <% } %>
+
+                <div class="form-buttons">
+                    <p id="errorsSummary" class="errors-text"></p>
+                    <% if (formMode !='showDetails' ) { %>
+                        <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+                        <a class="form-button-cancel" href="/employees">Anuluj</a>
+                        <% } else { %>
+                            <a class="form-button-return" href="/employees">Powrót</a>
+                            <% } %>
+                </div>
+    </main>
+
+    <%- include('../../fragments/footer.ejs') %>

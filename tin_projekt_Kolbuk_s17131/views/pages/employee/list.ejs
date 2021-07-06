@@ -1,0 +1,100 @@
+<%- include('../../fragments/header.ejs') %>
+
+    <main>
+        <h2>
+            <%= __('emp.list.title') %>
+        </h2>
+        <table class="table-list">
+            <thead>
+                <tr>
+                    <th>
+                        <%= __('emp.fields.firstName') %>
+                    </th>
+                    <th>
+                        <%= __('emp.fields.lastName') %>
+                    </th>
+                    <th>
+                        <%= __('emp.fields.email') %>
+                    </th>
+                    <th>
+                        <%= __('emp.fields.phone') %>
+                    </th>
+                    <th>
+                        <%= __('emp.fields.salary') %>
+                    </th>
+                    <th>
+                        <%= __('emp.fields.bonus') %>
+                    </th>
+                    <th>
+                        <%= __('emp.fields.category') %>
+                    </th>
+                    <th>
+                        <%= __('emp.fields.expDate') %>
+                    </th>
+                    <th>
+                        <%= __('emp.fields.permisson') %>
+                    </th>
+                    <th>
+                        <%= __('list.actions.title') %>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let emp of emps) { %>
+                    <tr>
+                        <td>
+                            <%= emp.firstName %>
+                        </td>
+                        <td>
+                            <%= emp.lastName %>
+                        </td>
+                        <td>
+                            <%= emp.email %>
+                        </td>
+                        <td>
+                            <%= emp.phone %>
+                        </td>
+                        <td>
+                            <%= emp.salary %>
+                        </td>
+                        <td>
+                            <%= emp.bonus %>
+                        </td>
+                        <td>
+                            <%= emp.category %>
+                        </td>
+                        <td>
+                            <%= emp.expDate %>
+                        </td>
+                        <td>
+                            <%= (emp.permisson==1) ? 'Tak' : 'Nie' %>
+                        </td>
+                        <td>
+                            <ul class="list-actions">
+                                <li>
+                                    <a href="/employees/details/<%= emp._id%>" class="list-actions-button-details">
+                                        <%= __('list.actions.details') %>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/employees/edit/<%= emp._id%>" class="list-actions-button-edit">
+                                        <%= __('list.actions.edit') %>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/employees/delete/<%= emp._id%>" class="list-actions-button-delete">
+                                        <%= __('list.actions.delete') %>
+                                    </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+        <p><a href="/employees/add" class="button-add">
+                <%= __('emp.list.addNew') %>
+            </a></p>
+    </main>
+
+    <%- include('../../fragments/footer.ejs') %>

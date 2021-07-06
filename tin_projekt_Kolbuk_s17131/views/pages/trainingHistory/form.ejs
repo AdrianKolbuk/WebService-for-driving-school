@@ -1,0 +1,199 @@
+<%- include('../../fragments/header.ejs') %>
+
+    <main>
+        <h2>
+            <%= pageTitle %>
+        </h2>
+        <form class="form" method="post" action="<%=formAction%>" onsubmit="return validateForm();">
+            <!--novalidate  onsubmit="return validateForm();" -->
+            <input type="hidden" name="_id" value="<%= history._id %>">
+
+            <label for="employee">
+                <%= __('history.fields.employee') + ':' %><abbr title="required" aria-label="required">*</abbr>
+            </label>
+            <select id="employee" name="employee_id"
+                class="<%= validationErrors.find(e => e.path.includes('employee')) ? 'error-input' : '' %>" required
+                <%=(formMode=='showDetails' ) ? 'disabled' : '' %>>
+                <option value="" selected>-- Wybierz pracownika --</option>
+                <% for (let i=0; i<allEmps.length; i++) { let emp=allEmps[i]; %>
+                    <option value="<%= emp._id %>" label="<%= emp.firstName + ' ' + emp.lastName %>" <%=(history._id &&
+                        emp._id.toString()==history.employee._id.toString()) ? 'selected' : '' %>></option>
+                    <% } %>
+            </select>
+            <span id="errorEmployee" class="errors-text">
+                <% if (validationErrors.find(e=> e.path.includes('employee'))) { %>
+                    <%= validationErrors.find(e=> e.path.includes('employee')).message %>
+                        <% } %>
+            </span>
+
+            <label for="training">
+                <%= __('history.fields.training') + ':' %><abbr title="required" aria-label="required">*</abbr>
+            </label>
+            <select id="training" name="training_id"
+                class="<%= validationErrors.find(e => e.path.includes('training')) ? 'error-input' : '' %>" required
+                <%=(formMode=='showDetails' ) ? 'disabled' : '' %>>
+                <option value="" selected>-- Wybierz szkolenie --</option>
+                <% for (let i=0; i<allTrainings.length; i++) { let trening=allTrainings[i]; %>
+                    <option value="<%= trening._id %>"
+                        label="<%= 'Typ: ' + trening.trainingType + ', czas: ' + trening.duration  + ', poziom: ' + trening.level%>"
+                        <%=(history._id && trening._id.toString()==history.training._id.toString()) ? 'selected' : '' %>
+                        >
+                    </option>
+                    <% } %>
+            </select>
+            <span id="errorTraining" class="errors-text">
+                <% if (validationErrors.find(e=> e.path.includes('training'))) { %>
+                    <%= validationErrors.find(e=> e.path.includes('training')).message %>
+                        <% } %>
+            </span>
+
+            <!-- <label for="duration">Czas trwania:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="number" name="duration" id="duration" placeholder="1-3 godzin"
+                class="<%= validationErrors.find(e => e.path.includes('duration')) ? 'error-input' : '' %>"
+                <%=(formMode=='showDetails' || formMode=='edit' ) ? 'disabled' : '' %>
+            <% if(formMode=='showDetails' || formMode=='edit' ) { %>
+                <% for (let i=0; i<allTrainings.length; i++) { let training=allTrainings[i]; %>
+                    <%if(history._id &&training._id.toString()==history.training._id.toString()) { %>
+                        value="<%= training.duration %>"/>
+                            <% } %>
+                                <% } %>
+                                    <% } else { %>
+                                        value=""/>
+                                        <% } %>
+                                            <span id="errorDuration" class="errors-text">
+                                                <% if (validationErrors.find(e=> e.path.includes(' duration'))) { %>
+                                                    <%= validationErrors.find(e=>
+                                                        e.path.includes('duration')).message
+                                                        %>
+                                                        <% } %>
+                                            </span>
+
+                                            <label for="level">Poziom zaawansowania:<abbr title="required"
+                                                    aria-label="required">*</abbr></label>
+                                            <input type="number" name="level" id="level"
+                                                class="<%= validationErrors.find(e => e.path.includes('level')) ? 'error-input' : '' %>"
+                                                placeholder="(początkujący)1-3(zaawansowany)"
+                                                <%=(formMode=='showDetails' ) ? 'disabled' : '' %>
+                                            <% if(formMode=='showDetails' || formMode=='edit' ) { %>
+                                                value="<%= history.training.level %>"/>
+                                                    <% } else { %>
+                                                        value=""/>
+                                                        <% } %>
+                                                            <span id="errorLevel" class="errors-text">
+                                                                <% if (validationErrors.find(e=>
+                                                                    e.path.includes('level')))
+                                                                    { %>
+                                                                    <%= validationErrors.find(e=>
+                                                                        e.path.includes('level')).message %>
+                                                                        <% } %>
+                                                            </span> -->
+
+            <label for="dateFrom">
+                <%= __('history.fields.dateFrom') + ':' %><abbr title="required" aria-label="required">*</abbr>
+            </label>
+            <input type="date" name="dateFrom" id="dateFrom" value="<%= history.dateFrom %>"
+                class="<%= validationErrors.find(e => e.path.includes('dateFrom')) ? 'error-input' : '' %>"
+                <%=(formMode=='showDetails' ) ? 'disabled' : '' %>
+            value="<%= history.dateFrom %>"/>
+                <span id="errorDateFrom" class="errors-text">
+                    <% if (validationErrors.find(e=>
+                        e.path.includes('dateFrom'))) { %>
+                        <%= validationErrors.find(e=>
+                            e.path.includes('dateFrom')).message
+                            %>
+                            <% } %>
+                </span>
+
+
+                <label for="dateTo">
+                    <%= __('history.fields.dateTo') + ':' %><abbr title="required" aria-label="required">*</abbr>
+                </label>
+                <input type="date" name="dateTo" id="dateTo" value="<%= history.dateTo %>"
+                    class="<%= validationErrors.find(e => e.path.includes('dateTo')) ? 'error-input' : '' %>"
+                    <%=(formMode=='showDetails' ) ? 'disabled' : '' %>
+                value="<%= history.dateTo %>"/>
+                    <span id="errorDateTo" class="errors-text">
+                        <% if (validationErrors.find(e=>
+                            e.path.includes('dateTo'))) { %>
+                            <%= validationErrors.find(e=>
+                                e.path.includes('dateTo')).message
+                                %>
+                                <% } %>
+                    </span>
+
+                    <label for="opinion">
+                        <%= __('history.fields.opinion') + ':' %>
+                    </label>
+                    <input type="text" name="opinion" id="opinion" placeholder="0-256 znaków"
+                        value="<%= history.opinion %>"
+                        class="<%= validationErrors.find(e => e.path.includes('opinion')) ? 'error-input' : '' %>"
+                        <%=(formMode=='showDetails' ) ? 'disabled' : '' %>/>
+                    <span id="errorOpinion" class="errors-text">
+                        <% if (validationErrors.find(e=>
+                            e.path.includes('opinion'))) { %>
+                            <%= validationErrors.find(e=>
+                                e.path.includes('opinion')).message
+                                %>
+                                <% } %>
+                    </span>
+
+                    <% if (formMode=='showDetails' ) { %>
+                        <div class="form-buttons">
+                            <a href="/history/edit/<%= history._id %>" class="list-actions-button-edit">
+                                <%= __('form.actions.edit') %>
+                            </a>
+                        </div>
+                        <% } else if(formMode=='edit' ) { %>
+                            <div class="form-buttons">
+                                <p id="errorsSummary" class="errors-text">
+                                    <% if(validationErrors.length>0){%>
+                                        <%= __('form.errorsSummary') %>
+                                            <% } %>
+                                </p>
+                                <input type="submit" value="<%=btnLabel%>" class="form-button-submit" />
+                                <a class="form-button-cancel" href="/history">
+                                    <%= __('form.actions.cancel') %>
+                                </a>
+                            </div>
+                            <% } else if(formMode=='createNew' ){%>
+                                <div class="form-buttons">
+                                    <p id="errorsSummary" class="errors-text">
+                                        <% if(validationErrors.length>0){%>
+                                            <%= __('form.errorsSummary') %>
+                                                <% } %>
+                                    </p>
+                                    <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+                                    <a class="form-button-cancel" href="/history">
+                                        <%= __('form.actions.cancel') %>
+                                    </a>
+                                </div>
+                                <% } %>
+        </form>
+        <div style="display: none">
+            <span id="errorMessage-required">
+                <%= __('validationMessage.fieldRequired') %>
+            </span>
+            <span id="errorMessage-isDate">
+                <%= __('validationMessage.fieldIsDate') %>
+            </span>
+            <span id="errorMessage-dateFromFuture">
+                <%= __('validationMessage.fieldDateFromFuture') %>
+            </span>
+            <span id="errorMessage-dateFromIsAfterDateTo">
+                <%= __('validationMessage.fieldDateFromIsAfterDateTo') %>
+            </span>
+            <span id="errorMessage-lenBetween0and256">
+                <%= __('validationMessage.fieldLenBetween0and256') %>
+            </span>
+            <span id="errorMessage-isNumber">
+                <%= __('validationMessage.fieldIsNumber') %>
+            </span>
+            <span id="errorMessage-formErrors">
+                <%= __('validationMessage.fieldFormErrors') %>
+            </span>
+        </div>
+
+
+    </main>
+
+    <%- include('../../fragments/footer.ejs') %>

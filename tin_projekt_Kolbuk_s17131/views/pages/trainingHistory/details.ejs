@@ -1,0 +1,58 @@
+<%- include('../../fragments/header.ejs') %>
+
+    <main>
+        <h2>Szczegóły szkolenia</h2>
+        <form class="form-details">
+            <!-- <div class="form-group"> -->
+            <label for="employee">Pracownik:</label>
+            <select id="employee" name="employee" disabled>
+                <option value="Michał Nowak">Michał Nowak</option>
+                <option value="Jan Kórczak">Jan Kórczak</option>
+                <option value="Jakub Baranowski">Jakub Baranowski</option>
+            </select>
+            <!-- </div>
+            <div class="form-group"> -->
+            <label for="trainingType">Typ szkolenia:</label>
+            <select id="trainingType" name="trainingType" disabled>
+                <option value="Nauka driftu">Nauka driftu</option>
+                <option value="Jazda torowa">Jazda torowa</option>
+                <option value="Niebezpieczeństwa drogowe">Niebezpieczeństwa drogowe</option>
+            </select>
+            <!-- </div>
+            <div class="form-group"> -->
+            <label for="czasTrwania">Czas trwania:</label>
+            <input type="number" name="czasTrwania" value=1 id="czasTrwania" disabled />
+            <!-- </div>
+            <div class="form-group"> -->
+            <label for="level">Poziom zaawansowania:</label>
+            <input type="number" name="level" value=1 id="level" disabled />
+            <!-- <select id="level" name="level" disabled>
+                <option value="1">1 - początkujący</option>
+                <option value="2">2 - średnio zaawansowany</option>
+                <option value="3">3 - zaawansowany</option>
+            </select> -->
+            <!-- </div>
+            <div class="form-group"> -->
+            <label for="dateFrom">Data od:</label>
+            <input type="date" name="dateFrom" value=2020-11-07 id="dateFrom" disabled />
+            <!-- </div>
+            <div class="form-group"> -->
+            <label for="dateTo">Data do:</label>
+            <input type="date" name="dateTo" value=2020-11-07 id="dateTo" disabled />
+            <!-- </div>
+            <div class="form-group"> -->
+            <label for="opinion">Opinia klienta:</label>
+            <input type="text" name="opinion" value="" id="opinion" disabled />
+            <!-- </div> -->
+            <ul class="list-actions">
+                <li>
+                    <a class="list-actions-button-edit" href="/history/edit">Edytuj</a>
+                <li>
+                <li>
+                    <a class="list-actions-button-details" href="/history">Powrót</a>
+                <li>
+            </ul>
+        </form>
+    </main>
+
+    <%- include('../../fragments/footer.ejs') %>

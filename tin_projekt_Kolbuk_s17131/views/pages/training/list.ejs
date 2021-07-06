@@ -1,0 +1,70 @@
+<%- include('../../fragments/header.ejs') %>
+
+    <main>
+        <h2>
+            <%= __('training.list.title') %>
+        </h2>
+        <table class="table-list">
+            <thead>
+                <tr>
+                    <th>
+                        <%= __('training.fields.trainingType') %>
+                    </th>
+                    <th>
+                        <%= __('training.fields.duration') %>
+                    </th>
+                    <th>
+                        <%= __('training.fields.level') %>
+                    </th>
+                    <th>
+                        <%= __('training.fields.price') %>
+                    </th>
+                    <th>
+                        <%= __('list.actions.title') %>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let training of trainings) { %>
+                    <tr>
+                        <td>
+                            <%= training.trainingType %>
+                        </td>
+                        <td>
+                            <%= training.duration %>
+                        </td>
+                        <td>
+                            <%= training.level %>
+                        </td>
+                        <td>
+                            <%= training.price %>
+                        </td>
+                        <td>
+                            <ul class="list-actions">
+                                <li>
+                                    <a href="/trainings/details/<%=training._id%>" class="list-actions-button-details">
+                                        <%= __('list.actions.details') %>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/trainings/edit/<%= training._id%>" class="list-actions-button-edit">
+                                        <%= __('list.actions.edit') %>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/trainings/delete/<%= training._id%>" class="list-actions-button-delete">
+                                        <%= __('list.actions.delete') %>
+                                    </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+        <p><a href="/trainings/add" class="button-add">
+                <%= __('training.list.addNew') %>
+            </a></p>
+    </main>
+
+    <%- include('../../fragments/footer.ejs') %>

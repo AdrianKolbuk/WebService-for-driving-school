@@ -1,0 +1,83 @@
+<%- include('../../fragments/header.ejs') %>
+
+    <main>
+        <h2>Szczegóły szkolenia</h2>
+        <form class="form-details">
+            <!-- </div>
+                <div class="form-group"> -->
+            <label for="trainingType">Typ szkolenia:</label>
+            <select id="trainingType" name="trainingType" disabled>
+                <option value="Nauka driftu">Nauka driftu</option>
+                <option value="Jazda torowa">Jazda torowa</option>
+                <option value="Niebezpieczeństwa drogowe">Niebezpieczeństwa drogowe</option>
+            </select>
+            <!-- </div>
+                <div class="form-group"> -->
+            <label for="duration">Czas trwania:</label>
+            <input type="number" name="duration" value=1 id="duration" disabled />
+            <!-- </div>
+                <div class="form-group"> -->
+            <label for="level">Poziom zaawansowania:</label>
+            <input type="number" name="level" value=1 id="level" disabled />
+            <!--<select id="level" name="level" disabled>
+                <option value=1>1</option>
+                Na serwer zostanie wysłana wartość value = 1, więc poziom zaawansowania jest integer
+                <option value=2>2</option>
+                <option value=3>3</option> 
+            </select>-->
+            <!-- </div>
+                <div class="form-group"> -->
+            <label for="price">Cena za godzinę:</label>
+            <input type="number" name="price" value=150 id="price" disabled />
+            <!-- </div>
+                <div class="form-group"> -->
+            <ul class="list-actions">
+                <li><a class="list-actions-button-edit" href="/trainings/edit">Edytuj</a></li>
+                <li><a class="list-actions-button-details" href="/trainings">Powrót</a></li>
+            </ul>
+        </form>
+
+        <h2>Szczegóły pracowników, którzy przeprowadzili to szkolenie</h2>
+        <table class="table-list">
+            <thead>
+                <tr>
+                    <th>Imię</th>
+                    <th>Nazwisko</th>
+                    <th>NrTel</th>
+                    <th>Data od</th>
+                    <th>Data do</th>
+                    <th>Opinia</th>
+                    <!-- <th>Kategoria prawa jazdy</th>
+                    <th>Data ważności prawa jazdy</th>
+                    <th>Uprawnienia do szkoleń</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Michał</td>
+                    <td>Nowak</td>
+                    <td>+48600222354</td>
+                    <td>07.11.2020</td>
+                    <td>07.11.2020</td>
+                    <td></td>
+                    <!-- <td>B</td>
+                    <td>04.06.2030</td>
+                    <td>Tak</td> -->
+                </tr>
+                <tr>
+                    <td>Jan</td>
+                    <td>Kórczak</td>
+                    <td>+48601533822</td>
+                    <td>07.11.2020</td>
+                    <td>07.11.2020</td>
+                    <td></td>
+                    <!-- <td>B</td>
+                    <td>04.06.2030</td>
+                    <td>Tak</td> -->
+                </tr>
+            </tbody>
+        </table>
+        <a class="form-button-return" href="/trainings">Powrót</a>
+    </main>
+
+    <%- include('../../fragments/footer.ejs') %>

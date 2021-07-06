@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <script type="application/javascript" src="/js/validationCommon.js"></script>
+    <% if (navLocation=='emp' ) { %>
+        <script type="application/javascript" src="/js/validationEmpForm.js"></script>
+        <% } %>
+            <% if (navLocation=='training' ) { %>
+                <script type="application/javascript" src="/js/validationTrainingForm.js"></script>
+                <% } %>
+                    <% if (navLocation=='history' ) { %>
+                        <script type="application/javascript" src="/js/validationTrainingHistoryForm.js"></script>
+                        <% } %>
+                            <script type="application/javascript" src="/js/changeTheme.js"></script>
+                            <title>
+                                <%= __('main-page.content') %>
+                            </title>
+</head>
+
+<body>
+    <header id="head1">
+        <% if(!loggedUser) { %>
+            <div id="login">
+                <h5 id="logowanie">
+                    <%= __('login.title') %>
+                </h5>
+                <form method="post" action="/login" novalidate>
+                    <label for="loginEmail">Email:</label>
+                    <input type="email" id="loginEmail" name="email">
+                    <br></br>
+                    <label for="loginPassword">
+                        <%= __('login.password') + ":" %>
+                    </label>
+                    <input type="password" id="loginPassword" name="password">
+                    <br></br>
+                    <input id="log_in" type="submit" value="<%= __('login.log_in') %>">
+                    <span id="loginErrors">
+                        <%= loginError ? loginError : '' %>
+                    </span>
+                </form>
+            </div>
+            <% } else { %>
+                <div>
+                    <span>
+                        <%= __('login.loggedAs') + ":" %>
+                            <%=loggedUser.firstName + " " + loggedUser.lastName%>
+                    </span>
+                    <a id="log_out" href="/logout">
+                        <%= __('login.log_out') %>
+                    </a>
+                </div>
+                <% } %>
+                    <!-- <select id="Theme" name="Theme" onchange="changeTheme()">
+                        <option id="Dark" value="https://operatordronow.pl/wp-content/uploads/2016/11/tlo-szare.png">
+                            Dark</option>
+                        <option id="Light"
+                            value="https://swiat-kolorow.com.pl/userdata/public/gfx/cf797262fd08df73461e9aaf5d9ff0fe.jpg">
+                            Light</option>
+                    </select> -->
+                    <h1>
+                        <%= __('main-page.content') %>
+                    </h1>
+                    <div>
+                        <img src="/images/logo.png" alt="Zetka_logo">
+                    </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>">
+                    <%= __('nav.main-page') %>
+                </a></li>
+            <% if(loggedUser) { %>
+                <li><a href="/employees" class="<%= navLocation == 'emp' ? 'active' : ''%>">
+                        <%= __('nav.employees') %>
+                    </a></li>
+                <li><a href="/trainings" class="<%= navLocation == 'training' ? 'active' : ''%>">
+                        <%= __('nav.trainings') %>
+                    </a>
+                </li>
+                <li><a href="/history" class="<%= navLocation == 'history' ? 'active' : ''%>">
+                        <%= __('nav.history') %>
+                    </a></li>
+                <!-- <li><a href="">Klienci</a></li> -->
+                <% } %>
+                    <li id="langPL" class="<%= (lang === 'pl') ? 'active' : ''%>"><a href="/changeLang/pl">PL</a></li>
+                    <li id="langEN" class="<%= (lang === 'en') ? 'active' : ''%>"><a href="/changeLang/en">EN</a></li>
+        </ul>
+    </nav>
