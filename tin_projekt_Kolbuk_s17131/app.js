@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const authUtils = require('./util/authUtils');
 const i18n = require('i18n');
+var cors = require('cors');
 
 
 var indexRouter = require('./routes/index');
@@ -22,6 +23,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -59,9 +61,9 @@ app.use((req, res, next) => {
 
 
 app.use('/', indexRouter);
-app.use('/employees', authUtils.permitAuthenticatedUser, employeeRouter);
-app.use('/trainings', authUtils.permitAuthenticatedUser, trainingRouter);
-app.use('/history', authUtils.permitAuthenticatedUser, trainingHistoryRouter);
+app.use('/employees', employeeRouter);
+app.use('/trainings', trainingRouter);
+app.use('/history', trainingHistoryRouter);
 
 app.use('/api/employees', empApiRouter);
 app.use('/api/trainings', trainingApiRouter);
@@ -90,11 +92,6 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-// sequelizeInit()
-//   .catch(err => {
-//     console.log(err);
-//   });
 
 
 module.exports = app;

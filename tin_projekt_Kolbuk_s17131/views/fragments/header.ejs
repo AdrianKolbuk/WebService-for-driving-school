@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <script type="application/javascript" src="/js/validationCommon.js"></script>
-    <% if (navLocation=='emp' ) { %>
+    <% if (navLocation=='emp' || navLocation=='register' ) { %>
         <script type="application/javascript" src="/js/validationEmpForm.js"></script>
         <% } %>
             <% if (navLocation=='training' ) { %>
@@ -42,6 +42,9 @@
                         <%= loginError ? loginError : '' %>
                     </span>
                 </form>
+                <form method="get" action="/register">
+                    <input id="log_in" type="submit" value="<%=__('nav.register') %>">
+                </form>
             </div>
             <% } else { %>
                 <div>
@@ -73,21 +76,22 @@
         <ul>
             <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>">
                     <%= __('nav.main-page') %>
+                </a>
+            </li>
+
+            <li><a href="/employees" class="<%= navLocation == 'emp' ? 'active' : ''%>">
+                    <%= __('nav.employees') %>
                 </a></li>
-            <% if(loggedUser) { %>
-                <li><a href="/employees" class="<%= navLocation == 'emp' ? 'active' : ''%>">
-                        <%= __('nav.employees') %>
-                    </a></li>
-                <li><a href="/trainings" class="<%= navLocation == 'training' ? 'active' : ''%>">
-                        <%= __('nav.trainings') %>
-                    </a>
-                </li>
-                <li><a href="/history" class="<%= navLocation == 'history' ? 'active' : ''%>">
-                        <%= __('nav.history') %>
-                    </a></li>
-                <!-- <li><a href="">Klienci</a></li> -->
-                <% } %>
-                    <li id="langPL" class="<%= (lang === 'pl') ? 'active' : ''%>"><a href="/changeLang/pl">PL</a></li>
-                    <li id="langEN" class="<%= (lang === 'en') ? 'active' : ''%>"><a href="/changeLang/en">EN</a></li>
+            <li><a href="/trainings" class="<%= navLocation == 'training' ? 'active' : ''%>">
+                    <%= __('nav.trainings') %>
+                </a>
+            </li>
+            <li><a href="/history" class="<%= navLocation == 'history' ? 'active' : ''%>">
+                    <%= __('nav.history') %>
+                </a>
+            </li>
+
+            <li id="langPL" class="<%= (lang === 'pl') ? 'active' : ''%>"><a href="/changeLang/pl">PL</a></li>
+            <li id="langEN" class="<%= (lang === 'en') ? 'active' : ''%>"><a href="/changeLang/en">EN</a></li>
         </ul>
     </nav>

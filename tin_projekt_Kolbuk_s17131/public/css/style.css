@@ -30,6 +30,18 @@ footer {
     padding: 1rem;
 }
 
+.success{
+    color:red;
+    /* border: 2px solid #E5E5E5; 
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 10 10 30px #E8E8E8 inset;
+    background-color:mediumseagreen;
+    color:white;
+    text-align: center;
+    width: 300px;
+    height: 25px; */
+}
+
 #Theme{
     display: flex;
     background: none repeat scroll 0 0 #FFFFFF;
@@ -74,7 +86,8 @@ footer {
     border-radius: 5px 5px 5px 5px;
     box-shadow: 0 0 10px #E8E8E8 inset;
     height: 30px; 
-    width: 80px;
+    width: 85px;
+    margin-bottom: 1rem;
 }
 
 #log_in:hover {

@@ -19,7 +19,7 @@ const Employee = sequelize.define('Employee', {
                 args: [2, 32],
                 msg: "Pole powinno zawierać od 2 do 32 znaków"
             },
-        }
+        },
     },
     lastName: {
         type: Sequelize.STRING(32),
@@ -139,11 +139,27 @@ const Employee = sequelize.define('Employee', {
                 msg: "Pole jest wymagane"
             },
             len: {
-                args: [5, 40],
-                msg: "hasło musi zawierać od 5 do 40 znaków"
+                args: [5, 256],
+                msg: "hasło musi zawierać min. 5 znaków"
+            },
+        }
+    },
+    confirmPassword: {
+        type: Sequelize.VIRTUAL,
+        allowNull: false,
+        validate: {
+            notEmpty: {
+                msg: "Pole jest wymagane"
+            },
+            isEqual() {
+                if (this.confirmPassword != this.password) {
+                    throw new Error("Hasła nie są takie same");
+                }
             },
         }
     }
 });
+
+
 
 module.exports = Employee;

@@ -4,7 +4,7 @@
         <h2>
             <%= pageTitle %>
         </h2>
-        <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+        <form class="form" method="post" action="<%=formAction%>" novalidate>
             <!-- novalidate onsubmit="return validateForm();" -->
             <input type="hidden" name="_id" value="<%= emp._id %>">
 
@@ -148,18 +148,30 @@
                 </span>
 
 
-                <% if(formMode!=='showDetails' && formMode!=='' ) { %>
+                <% if(formMode=='createNew' || formMode=='register' ) { %>
                     <label for="password">
                         <%= __('emp.fields.password') + ':' %><abbr title="required" aria-label="required">*</abbr>
                     </label>
                     <input type="password" name="password" id="password" placeholder="5-40 znaków"
-                        value="<%= emp.password %>"
                         class="<%= validationErrors.find(e => e.path.includes('password')) ? 'error-input' : '' %>">
                     <span id="errorPassword" class="errors-text">
                         <% if (validationErrors.find(e=> e.path.includes('password'))) { %>
                             <%= validationErrors.find(e=> e.path.includes('password')).message %>
                                 <% } %>
                     </span>
+
+                    <label for="confirmPassword">
+                        <%= __('emp.fields.confirmPassword') + ':' %><abbr title="required"
+                                aria-label="required">*</abbr>
+                    </label>
+                    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="5-40 znaków"
+                        class="<%= validationErrors.find(e => e.path.includes('confirmPassword')) ? 'error-input' : '' %>">
+                    <span id="errorConfirmPassword" class="errors-text">
+                        <% if (validationErrors.find(e=> e.path.includes('confirmPassword'))) { %>
+                            <%= validationErrors.find(e=> e.path.includes('confirmPassword')).message %>
+                                <% } %>
+                    </span>
+
                     <% } %>
 
                         <% if (formMode=='showDetails' ) { %>
@@ -180,7 +192,7 @@
                                         <%= __('form.actions.cancel') %>
                                     </a>
                                 </div>
-                                <% } else if(formMode=='createNew' ){%>
+                                <% } else if(formMode=='createNew' || formMode=='register' ){%>
                                     <div class="form-buttons">
                                         <p id="errorsSummary" class="errors-text">
                                             <% if(validationErrors.length>0){%>
@@ -230,6 +242,9 @@
             </span>
             <span id="errorMessage-lenBetween5and40">
                 <%= __('validationMessage.fieldLenBetween5and40') %>
+            </span>
+            <span id="errorMessage-notConfirmedPassword">
+                <%= __('validationMessage.notConfirmedPassword') %>
             </span>
         </div>
 

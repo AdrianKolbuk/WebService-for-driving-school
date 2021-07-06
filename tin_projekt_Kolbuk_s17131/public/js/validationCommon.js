@@ -8,16 +8,6 @@ function resetErrors(inputs, errorTexts, errorInfo) {
     errorInfo.innerText = "";
 }
 
-function resetErrors(inputs, errorTexts, errorInfo) {
-    for (let i = 0; i < inputs.length; i++) {
-        inputs[i].classList.remove("error-input");
-    }
-    for (let i = 0; i < errorTexts.length; i++) {
-        errorTexts[i].innerText = "";
-    }
-    errorInfo.innerText = "";
-}
-
 function checkRequired(value) {
     if (!value) {
         return false;
@@ -108,5 +98,14 @@ function checkDateIfAfter(value, compareTo) {
         return false;
     }
     return true;
+}
+
+function checkConfirmPassword(value, comparedValue) {
+    if (!value && !comparedValue) {
+        return false;
+    }
+    if (value === comparedValue) {
+        return true;
+    }
 }
 

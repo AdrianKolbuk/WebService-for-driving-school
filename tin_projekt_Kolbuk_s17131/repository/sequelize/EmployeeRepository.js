@@ -30,7 +30,10 @@ exports.createEmployee = (newEmpData) => {
         bonus: newEmpData.bonus,
         category: newEmpData.category,
         expDate: newEmpData.expDate,
-        permisson: newEmpData.permisson
+        permisson: newEmpData.permisson,
+        password: newEmpData.password,
+        confirmPassword: newEmpData.confirmPassword,
+        role: newEmpData.role
     });
 };
 

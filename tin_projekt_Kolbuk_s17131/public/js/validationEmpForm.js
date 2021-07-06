@@ -9,6 +9,7 @@ function validateForm() {
     const expDateInput = document.getElementById('expDate');
     const permissonInput = document.getElementById('permisson');
     const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirmPassword');
 
     const errorFirstName = document.getElementById('errorFirstName');
     const errorLastName = document.getElementById('errorLastName');
@@ -20,9 +21,10 @@ function validateForm() {
     const errorExpDate = document.getElementById('errorExpDate');
     const errorPermisson = document.getElementById('errorPermisson');
     const errorPassword = document.getElementById('errorPassword');
+    const errorConfirmPassword = document.getElementById('errorConfirmPassword');
     const errorsSummary = document.getElementById('errorsSummary');
 
-    resetErrors([firstNameInput, lastNameInput, emailInput, phoneInput, salaryInput, bonusInput, categoryInput, expDateInput, permissonInput, passwordInput], [errorFirstName, errorLastName, errorEmail, errorPhone, errorSalary, errorBonus, errorCategory, errorExpDate, errorPermisson, errorPassword], errorsSummary);
+    resetErrors([firstNameInput, lastNameInput, emailInput, phoneInput, salaryInput, bonusInput, categoryInput, expDateInput, permissonInput, passwordInput, confirmPasswordInput], [errorFirstName, errorLastName, errorEmail, errorPhone, errorSalary, errorBonus, errorCategory, errorExpDate, errorPermisson, errorPassword, errorConfirmPassword], errorsSummary);
     let valid = true;
     //walidacja imie
     if (!checkRequired(firstNameInput.value)) {
@@ -163,6 +165,25 @@ function validateForm() {
         passwordInput.classList.add("error-input");
         errorPassword.innerText = reqMessage;
     }
+
+    //walidacja ConfirmHasło
+    if (!checkRequired(confirmPasswordInput.value)) {
+        const reqMessage = document.getElementById('errorMessage-required').innerText;
+        valid = false;
+        confirmPasswordInput.classList.add("error-input");
+        errorConfirmPassword.innerText = reqMessage;
+    } else if (!checkTextLengthRange(confirmPasswordInput.value, 5, 40)) {
+        const reqMessage = document.getElementById('errorMessage-lenBetween5and40').innerText;
+        valid = false;
+        confirmPasswordInput.classList.add("error-input");
+        errorConfirmPassword.innerText = reqMessage;
+    } else if (!checkConfirmPassword(confirmPasswordInput.value, passwordInput.value)) {
+        const reqMessage = document.getElementById('errorMessage-notConfirmedPassword').innerText;
+        valid = false;
+        confirmPasswordInput.classList.add("error-input");
+        errorConfirmPassword.innerText = reqMessage;
+    }
+
 
     if (!valid) {
         const reqMessage = document.getElementById('errorMessage-formErrors').innerText;

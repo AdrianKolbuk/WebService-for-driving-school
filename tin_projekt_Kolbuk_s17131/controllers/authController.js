@@ -7,7 +7,7 @@ exports.login = (req, res, next) => {
     EmployeeRepository.findByEmail(email)
         .then(emp => {
             if (!emp) {
-                res.render('index', {
+                res.render('pages/index', {
                     navLocation: '',
                     loginError: "Nieprawidłowy adres email lub hasło"
                 })
@@ -15,7 +15,7 @@ exports.login = (req, res, next) => {
                 req.session.loggedUser = emp;
                 res.redirect('/');
             } else {
-                res.render('index', {
+                res.render('pages/index', {
                     navLocation: '',
                     loginError: "Nieprawidłowy adres email lub hasło"
                 })

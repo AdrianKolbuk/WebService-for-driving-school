@@ -7,7 +7,8 @@
 		"main-page": "Main page",
 		"employees": "Employees",
 		"trainings": "Available Trainings",
-		"history": "History of trainings conducted"
+		"history": "History of trainings conducted",
+		"register": "Registration"
 	},
 	"list": {
 		"actions": {
@@ -22,7 +23,8 @@
 			"return": "Return",
 			"edit": "Edit",
 			"cancel": "Cancel"
-		}
+		},
+		"errorsSummary": "form.errorsSummary"
 	},
 	"emp": {
 		"fields": {
@@ -35,7 +37,8 @@
 			"expDate": "Driver license expiration date",
 			"permisson": "Training instructor permission",
 			"password": "Password",
-			"phone": "Phone"
+			"phone": "Phone",
+			"confirmPassword": "Confirm password"
 		},
 		"list": {
 			"title": "Employees",
@@ -63,6 +66,10 @@
 			},
 			"details": {
 				"pageTitle": "Employee details"
+			},
+			"register": {
+				"pageTitle": "Employee registration",
+				"btnLabel": "Register"
 			}
 		}
 	},
@@ -143,7 +150,8 @@
 		"password": "Password",
 		"loggedAs": "Logged as",
 		"log_out": "Logout",
-		"log_in": "Login"
+		"log_in": "Login",
+		"authenticationError": "Unauthorized access :( try to log in"
 	},
 	"validationMessage": {
 		"fieldRequired": "Field required",
@@ -163,6 +171,7 @@
 		"fieldLenBetween2and32": "Field should contain 2 to 32 characters",
 		"fieldLenBetween5and60": "Field should contain 5 to 60 characters",
 		"fieldLenBetween12and12": "Example: +48xxxxxxxxx",
-		"fieldLenBetween5and40": "Field should contain 5 to 40 characters"
+		"fieldLenBetween5and40": "Field should contain min. 5 characters",
+		"notConfirmedPassword": "Password not confirmed"
 	}
 }

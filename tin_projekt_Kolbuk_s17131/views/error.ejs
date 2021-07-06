@@ -1,3 +1,110 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<% if(message=="Unauthorized access, you need to log in in order to do that" ) { %>
+    <!DOCTYPE html>
+    <html lang="pl-PL">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/css/style.css" />
+        <script type="application/javascript" src="/js/validationCommon.js"></script>
+        <script type="application/javascript" src="/js/changeTheme.js"></script>
+        <title>
+            <%= __('main-page.content') %>
+        </title>
+    </head>
+
+    <body>
+        <header id="head1">
+            <% if(!loggedUser) { %>
+                <div id="login">
+                    <h5 id="logowanie">
+                        <%= __('login.title') %>
+                    </h5>
+                    <form method="post" action="/login" novalidate>
+                        <label for="loginEmail">Email:</label>
+                        <input type="email" id="loginEmail" name="email">
+                        <br></br>
+                        <label for="loginPassword">
+                            <%= __('login.password') + ":" %>
+                        </label>
+                        <input type="password" id="loginPassword" name="password">
+                        <br></br>
+                        <input id="log_in" type="submit" value="<%= __('login.log_in') %>">
+                        <span id="loginErrors">
+                            <%= loginError ? loginError : '' %>
+                        </span>
+                    </form>
+                    <form method="get" action="/register">
+                        <input id="log_in" type="submit" value="<%=__('nav.register') %>">
+                    </form>
+                </div>
+                <% } else { %>
+                    <div>
+                        <span>
+                            <%= __('login.loggedAs') + ":" %>
+                                <%=loggedUser.firstName + " " + loggedUser.lastName%>
+                        </span>
+                        <a id="log_out" href="/logout">
+                            <%= __('login.log_out') %>
+                        </a>
+                    </div>
+                    <% } %>
+                        <h1>
+                            <%= __('main-page.content') %>
+                        </h1>
+                        <div>
+                            <img src="/images/logo.png" alt="Zetka_logo">
+                        </div>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="/">
+                        <%= __('nav.main-page') %>
+                    </a>
+                </li>
+
+                <li><a href="/employees">
+                        <%= __('nav.employees') %>
+                    </a></li>
+                <li><a href="/trainings">
+                        <%= __('nav.trainings') %>
+                    </a>
+                </li>
+                <li><a href="/history">
+                        <%= __('nav.history') %>
+                    </a>
+                </li>
+
+                <li id="langPL" class="<%= (lang === 'pl') ? 'active' : ''%>"><a href="/changeLang/pl">PL</a></li>
+                <li id="langEN" class="<%= (lang === 'en') ? 'active' : ''%>"><a href="/changeLang/en">EN</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <h2>
+                <%= __('login.authenticationError') %>
+            </h2>
+            <a class="form-button-return" href="/">
+                <%= __('form.actions.return') %>
+            </a>
+        </main>
+
+        <footer id="foot1">
+            Adrian Kołbuk s17131, <%= __('main-page.contact') %>: s17131@pjwstk.edu.pl
+        </footer>
+
+    </body>
+
+    </html>
+    <% } else { %>
+
+        <h1>
+            <%= message %>
+        </h1>
+        <h2>
+            <%= error.status %>
+        </h2>
+        <pre><%= error.stack %></pre>
+
+        <% } %>

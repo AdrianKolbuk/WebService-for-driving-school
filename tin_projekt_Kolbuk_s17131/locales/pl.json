@@ -7,7 +7,8 @@
 		"main-page": "Strona główna",
 		"employees": "Pracownicy",
 		"trainings": "Dostępne szkolenia",
-		"history": "Historia zapisów na szkolenie"
+		"history": "Historia zapisów na szkolenie",
+		"register": "Rejestracja"
 	},
 	"list": {
 		"actions": {
@@ -22,7 +23,8 @@
 			"return": "Powrót",
 			"edit": "Edytuj",
 			"cancel": "Anuluj"
-		}
+		},
+		"errorsSummary": "Formularz zawiera błędy"
 	},
 	"emp": {
 		"fields": {
@@ -35,7 +37,8 @@
 			"expDate": "Data ważności prawa jazdy",
 			"permisson": "Uprawnienia do szkoleń",
 			"password": "Hasło",
-			"phone": "Nr tel"
+			"phone": "Nr tel",
+			"confirmPassword": "Potwierdz hasło"
 		},
 		"list": {
 			"title": "Lista pracowników",
@@ -63,6 +66,10 @@
 			},
 			"details": {
 				"pageTitle": "Szczegóły pracownika"
+			},
+			"register": {
+				"pageTitle": "Rejestracja pracownika",
+				"btnLabel": "Zarejestruj się"
 			}
 		}
 	},
@@ -156,13 +163,15 @@
 		"fieldLenBetween2and32": "Pole powinno zawierać od 2 do 32 znaków",
 		"fieldLenBetween5and60": "Pole powinno zawierać od 5 do 60 znaków",
 		"fieldLenBetween12and12": "np. +48xxxxxxxxx",
-		"fieldLenBetween5and40": "Pole powinno zawierać od 5 do 40 znaków"
+		"fieldLenBetween5and40": "Pole powinno zawierać min. 5 znaków",
+		"notConfirmedPassword": "Hasło nie potwierdzone"
 	},
 	"login": {
 		"title": "Logowanie",
 		"password": "Hasło",
 		"loggedAs": "Zalogowano jako",
 		"log_out": "Wyloguj się",
-		"log_in": "Zaloguj się"
+		"log_in": "Zaloguj się",
+		"authenticationError": "Nie masz uprawnień do tej zawartości :( spróbuj się zalogować"
 	}
 }
