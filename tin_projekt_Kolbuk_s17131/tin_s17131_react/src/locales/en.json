@@ -1,0 +1,179 @@
+{
+	"main-page": {
+		"content": "Driving and motorsport school Zetka",
+		"contact": "Contact"
+	},
+	"nav": {
+		"main-page": "Main page",
+		"employees": "Employees",
+		"trainings": "Available Trainings",
+		"history": "History of trainings conducted",
+		"register": "Registration"
+	},
+	"list": {
+		"actions": {
+			"title": "Actions",
+			"details": "Details",
+			"edit": "Edit",
+			"delete": "Delete"
+		}
+	},
+	"form": {
+		"actions": {
+			"return": "Return",
+			"edit": "Edit",
+			"cancel": "Cancel",
+			"add": "Add"
+		},
+		"errorsSummary": "form.errorsSummary"
+	},
+	"emp": {
+		"fields": {
+			"firstName": "First name",
+			"lastName": "Last name",
+			"email": "Email",
+			"salary": "Salary",
+			"bonus": "Quarterly bonus(%)",
+			"category": "Driver license category",
+			"expDate": "Driver license expiration date",
+			"permisson": "Training instructor permission",
+			"password": "Password",
+			"phone": "Phone",
+			"confirmPassword": "Confirm password"
+		},
+		"list": {
+			"title": "Employees",
+			"addNew": "Add new employee",
+			"loading": "Loading data of employees",
+			"noData": "No employees in database",
+			"pageTitle": "List of employees"
+		},
+		"form": {
+			"trainingHistory": "History of trainings conducted",
+			"add": {
+				"pageTitle": "Adding a new employee",
+				"btnLabel": "Add the employee",
+				"confirm": {
+					"header": "Confirmation",
+					"text": "The new employee has been successfully created"
+				}
+			},
+			"edit": {
+				"pageTitle": "Editing an employee",
+				"btnLabel": "Save changes",
+				"confirm": {
+					"header": "Confirmation",
+					"text": "The employee has been successfully updated"
+				}
+			},
+			"details": {
+				"pageTitle": "Employee details"
+			},
+			"register": {
+				"pageTitle": "Employee registration",
+				"btnLabel": "Register"
+			}
+		}
+	},
+	"history": {
+		"fields": {
+			"employee": "Employee",
+			"training": "Training",
+			"dateFrom": "Date from",
+			"dateTo": "Date to",
+			"opinion": "Client's opinion"
+		},
+		"list": {
+			"title": "Training History",
+			"addNew": "Add conducted training",
+			"noData": "No history of conducted trainings in database",
+			"pageTitle": "List of conducted trainings"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Adding a new training to history",
+				"btnLabel": "Add the training conducted",
+				"confirm": {
+					"header": "Confirmation",
+					"text": "The new training history has been successfully created"
+				}
+			},
+			"edit": {
+				"pageTitle": "Editing an conducted training",
+				"btnLabel": "Save changes",
+				"confirm": {
+					"header": "Confirmation",
+					"text": "The training history has been successfully updated"
+				}
+			},
+			"details": {
+				"pageTitle": "Training history details"
+			}
+		}
+	},
+	"training": {
+		"fields": {
+			"trainingType": "Training type",
+			"duration": "Duration(h)",
+			"level": "Level",
+			"price": "Price per hour"
+		},
+		"list": {
+			"title": "Available trainings",
+			"addNew": "Add new training",
+			"noData": "No trainings in database",
+			"pageTitle": "List of available trainings"
+		},
+		"form": {
+			"employee": "Employee details whose conducted this training",
+			"add": {
+				"pageTitle": "Adding a new training",
+				"btnLabel": "Add the training",
+				"confirm": {
+					"header": "Confirmation",
+					"text": "The new training has been successfully created"
+				}
+			},
+			"edit": {
+				"pageTitle": "Editing an training",
+				"btnLabel": "Save changes",
+				"confirm": {
+					"header": "Confirmation",
+					"text": "The training has been successfully updated"
+				}
+			},
+			"details": {
+				"pageTitle": "Training details"
+			}
+		}
+	},
+	"login": {
+		"title": "Login",
+		"password": "Password",
+		"loggedAs": "Logged as",
+		"log_out": "Logout",
+		"log_in": "Login",
+		"authenticationError": "Unauthorized access :( try to log in"
+	},
+	"validationMessage": {
+		"fieldRequired": "Field required",
+		"fieldBetween2000and1000000": "Field should be a number between 2000 and 1 000 000",
+		"fieldBetween1and30": "Field should be a number between 1 and 30",
+		"fieldEmail": "Field should contain a valid email address",
+		"fieldIsNumber": "Field should be a number",
+		"fieldIsDate": "Field should contain a valid date in yyyy-MM-dd format (example: 2000-01-01)",
+		"fieldNotNull": "Field can't be empty",
+		"fieldFormErrors": "The form contains errors",
+		"fieldLenBetween2and60": "Field should contain 2 to 60 characters",
+		"fieldBetween100and500": "Field should be a number between 100 and 500",
+		"fieldBetween1and3": "Field should be a number between 1 and 30",
+		"fieldDateFromFuture": "Date cannot be from future",
+		"fieldDateFromIsAfterDateTo": "Date to cannot be before date from",
+		"fieldLenBetween0and256": "Field should contain 0 to 256 characters",
+		"fieldLenBetween2and32": "Field should contain 2 to 32 characters",
+		"fieldLenBetween5and60": "Field should contain 5 to 60 characters",
+		"fieldLenBetween12and12": "Example: +48xxxxxxxxx",
+		"fieldLenBetween5and40": "Field should contain min. 5 characters",
+		"notConfirmedPassword": "Password not confirmed"
+	}
+}
